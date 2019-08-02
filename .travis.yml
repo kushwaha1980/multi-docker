@@ -18,3 +18,7 @@ after_success:
   - docker push kumard31/multi-nginx
   - docker push kumard31/multi-worker
   - docker push kumard31/multi-server
+
+notification:
+  email:
+    - ee_deepakkumar@rediffmail.com
