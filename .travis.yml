@@ -7,10 +7,10 @@ before_install:
 script:
   - docker run -e CI=true kumard31/react-test npm test   
 after_success:
-  - docker build -t kumard31/multi-client -f ./client 
-  - docker build -t kumard31/multi-nginx -f ./nginx
-  - docker build -t kumard31/multi-worker -f ./worker
-  - docker build -t kumard31/multi-server -f ./server
+  - docker build -t kumard31/multi-client -f ./client/Dockerfile ./client 
+  - docker build -t kumard31/multi-nginx -f ./nginx/Dockerfile ./nginx
+  - docker build -t kumard31/multi-worker -f ./worker/Dockerfile ./worker
+  - docker build -t kumard31/multi-server -f ./server/Dockerfile ./worker
 #Docker login
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin  
 #Docker images push
